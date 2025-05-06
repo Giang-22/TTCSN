@@ -1,5 +1,5 @@
 
--- T?o login và user 
+-- Tao login và user 
 CREATE LOGIN user_nhanvien WITH PASSWORD = 'NhanVien123!';
 CREATE USER user_nhanvien FOR LOGIN user_nhanvien;
 

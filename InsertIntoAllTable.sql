@@ -29,7 +29,7 @@ insert into KHACHHANG values
 ('KH060', N'Lê Minh Tân', '0911111116', N'99 Trần Hưng Đạo, Q1');
 
 
-insert into NHOMMonAN values
+insert into NHOMMONAN values
 --(MaNhom, TenNhom)
 ('NM01', N'Món Khai Vị'),
 ('NM02', N'Món Chính'),
@@ -261,8 +261,7 @@ insert into PHIEUNHAPHANG values
 ('PN020', '2025-04-07', 79, N'Kho nguyên liệu chế biến', 'NV046');
 
 
-
-insert into PHIEUTHonGKE values 
+insert into PHIEUTHONGKE values 
 --(MaPhieu, NgayThongKe, DoanhThu, Thu, Chi, MaNhanVien) 
 ('PTK001', '2025-04-01', 6172575, 3774009, 2398566, 'NV045'),
 ('PTK002', '2025-04-02', 5655660, 202159, 5453501, 'NV041'),
