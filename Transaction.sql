@@ -1,5 +1,5 @@
---TRANSACTION	
--- 2. Giao d?ch: Nh?p h�ng v� chi ti?t nguy�n li?u
+﻿--TRANSACTION	
+-- 2. Giao dịch: Nhập hàng và chi tiết nguyên liệu
 create proc sp_NhapHang
     @MaPhieu char(10),
     @NgayTao datetime,
@@ -20,7 +20,7 @@ begin
 end
 go
 
--- 3. Giao d?ch: H?y h�a ??n
+-- 3. Giao dịch: Hủy hóa đơn
 create proc sp_HuyHoaDon
     @MaHoaDon char(10)
 as
@@ -38,7 +38,7 @@ begin
 end
 go
 
--- 4. Giao d?ch: ?�nh d?u h�a ??n ?� ho�n ti?n
+-- 4. Giao dịch: Đánh dấu hóa đơn đã hoàn tiền
 create proc sp_HoanTienHoaDon
     @MaHoaDon char(10)
 as
@@ -46,7 +46,7 @@ begin
     begin transaction
     begin try
         update HOADON
-        set TrangThai = N'?� ho�n ti?n'
+        set TrangThai = N'Đã hoàn tiền'
         where MaHoaDon = @MaHoaDon
         commit
     end try
@@ -57,7 +57,7 @@ begin
 end
 go
 
--- 5. Giao d?ch: G?p b�n
+-- 5. Giao dịch: Gộp bàn
 create proc sp_gopBan
     @MaKH char(10),
     @MaBanCu char(10),
@@ -70,8 +70,8 @@ begin
         set MaBan = @MaBanMoi
         where MaKhachHang = @MaKH AND MaBan = @MaBanCu
 
-        update BAN set TrangThai = N'C�n B�n' where MaBan = @MaBanCu
-        update BAN set TrangThai = N'H?t B�n' where MaBan = @MaBanMoi
+        update BAN set TrangThai = N'Còn Bàn' where MaBan = @MaBanCu
+        update BAN set TrangThai = N'Hết Bàn' where MaBan = @MaBanMoi
 
         commit
     end try

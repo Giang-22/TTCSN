@@ -1,208 +1,209 @@
+﻿
+-- tạo login và user 
+create login user_nhanvien with password = 'NhanVien123!';
+create user user_nhanvien for login user_nhanvien;
 
--- Tao login v� user 
-CREATE LOGIN user_nhanvien WITH PASSWORD = 'NhanVien123!';
-CREATE USER user_nhanvien FOR LOGIN user_nhanvien;
 
-CREATE LOGIN user_quanly WITH PASSWORD = 'QuanLy123!';
-CREATE USER user_quanly FOR LOGIN user_quanly;
+create login user_quanly with password = 'QuanLy123!';
+create user user_quanly for login user_quanly;
 
-CREATE LOGIN user_ketoan WITH PASSWORD = 'KeToan123!';
-CREATE USER user_ketoan FOR LOGIN user_ketoan;
+create login user_ketoan with password = 'KeToan123!';
+create user user_ketoan for login user_ketoan;
 
---C?p quy?n grant cho nh�n vi�n(user_nhanvien)
--- Cho ph�p xem th�ng tin b�n
-GRANT SELECT ON BAN TO user_nhanvien;
+-- cấp quyền grant cho nhân viên (user_nhanvien)
+-- cho phép xem thông tin bàn
+grant select on BAN to user_nhanvien;
 
--- Cho ph�p xem danh s�ch m�n ?n
-GRANT SELECT ON MONAN TO user_nhanvien;
+-- cho phép xem danh sách món ăn
+grant select on MONAN to user_nhanvien;
 
--- Cho ph�p tra c?u th�ng tin kh�ch h�ng
-GRANT SELECT ON KHACHHANG TO user_nhanvien;
+-- cho phép tra cứu thông tin khách hàng
+grant select on KHACHHANG to user_nhanvien;
 
--- Cho ph�p xem v� t?o chi ti?t ??t b�n
-GRANT SELECT, INSERT ON CHITIETDATBAN TO user_nhanvien;
+-- cho phép xem và tạo chi tiết đặt bàn
+grant select, insert on CHITIETDATBAN to user_nhanvien;
 
--- Cho ph�p xem v� ??ng k� ca l�m vi?c
-GRANT SELECT, INSERT ON NHANVIEN_CALAMVIEC TO user_nhanvien;
+-- cho phép xem và đăng ký ca làm việc
+grant select, insert on NHANVIEN_CALAMVIEC to user_nhanvien;
 
--- Cho ph�p xem th�ng tin c�c ca l�m
-GRANT SELECT ON CALAMVIEC TO user_nhanvien;
+-- cho phép xem thông tin các ca làm
+grant select on CALAMVIEC to user_nhanvien;
 
--- Cho ph�p t?o h�a ??n khi thanh to�n
-GRANT INSERT ON HOADON TO user_nhanvien;
+-- cho phép tạo hóa đơn khi thanh toán
+grant insert on HOADON to user_nhanvien;
 
--- Cho ph�p ghi chi ti?t h�a ??n
-GRANT INSERT ON CHITIETHOADON TO user_nhanvien;
+-- cho phép ghi chi tiết hóa đơn
+grant insert on CHITIETHOADON to user_nhanvien;
 
--- Cho ph�p g?i ?�nh gi� m�n ?n
-GRANT INSERT ON DANHGIA TO user_nhanvien;
+-- cho phép gửi đánh giá món ăn
+grant insert on DANHGIA to user_nhanvien;
 
--- Cho ph�p xem c�c ch??ng tr�nh khuy?n m�i
-GRANT SELECT ON KHUYENMAI TO user_nhanvien;
+-- cho phép xem các chương trình khuyến mãi
+grant select on KHUYENMAI to user_nhanvien;
 
---C?p quy?n grant cho qu?n l�(user_quanly)
--- Qu?n l� nh�n vi�n
-GRANT SELECT, INSERT, UPDATE, DELETE ON NHANVIEN TO user_quanly;
+-- cấp quyền grant cho quản lý (user_quanly)
+-- quản lý nhân viên
+grant select, insert, update, delete on NHANVIEN to user_quanly;
 
--- Qu?n l� ca l�m vi?c
-GRANT SELECT, INSERT, UPDATE, DELETE ON CALAMVIEC TO user_quanly;
+-- quản lý ca làm việc
+grant select, insert, update, delete on CALAMVIEC to user_quanly;
 
--- Qu?n l� ph�n c�ng ca l�m
-GRANT SELECT, INSERT, UPDATE, DELETE ON NHANVIEN_CALAMVIEC TO user_quanly;
+-- quản lý phân công ca làm
+grant select, insert, update, delete on NHANVIEN_CALAMVIEC to user_quanly;
 
--- Qu?n l� th�ng tin kh�ch h�ng
-GRANT SELECT, INSERT, UPDATE, DELETE ON KHACHHANG TO user_quanly;
+-- quản lý thông tin khách hàng
+grant select, insert, update, delete on KHACHHANG to user_quanly;
 
--- Qu?n l� h�a ??n
-GRANT SELECT, INSERT, UPDATE, DELETE ON HOADON TO user_quanly;
+-- quản lý hóa đơn
+grant select, insert, update, delete on HOADON to user_quanly;
 
--- Qu?n l� chi ti?t h�a ??n
-GRANT SELECT, INSERT, UPDATE, DELETE ON CHITIETHOADON TO user_quanly;
+-- quản lý chi tiết hóa đơn
+grant select, insert, update, delete on CHITIETHOADON to user_quanly;
 
--- Qu?n l� chi ti?t ??t b�n
-GRANT SELECT, INSERT, UPDATE, DELETE ON CHITIETDATBAN TO user_quanly;
+-- quản lý chi tiết đặt bàn
+grant select, insert, update, delete on CHITIETDATBAN to user_quanly;
 
--- Qu?n l� b�n ?n
-GRANT SELECT, INSERT, UPDATE, DELETE ON BAN TO user_quanly;
+-- quản lý bàn ăn
+grant select, insert, update, delete on BAN to user_quanly;
 
--- Qu?n l� m�n ?n
-GRANT SELECT, INSERT, UPDATE, DELETE ON MONAN TO user_quanly;
+-- quản lý món ăn
+grant select, insert, update, delete on MONAN to user_quanly;
 
--- Qu?n l� nh�m m�n ?n
-GRANT SELECT, INSERT, UPDATE, DELETE ON NHOMMONAN TO user_quanly;
+-- quản lý nhóm món ăn
+grant select, insert, update, delete on NHOMMONAN to user_quanly;
 
--- Qu?n l� nguy�n li?u
-GRANT SELECT, INSERT, UPDATE, DELETE ON NGUYENLIEU TO user_quanly;
+-- quản lý nguyên liệu
+grant select, insert, update, delete on NGUYENLIEU to user_quanly;
 
--- Qu?n l� nguy�n li?u trong m�n ?n
-GRANT SELECT, INSERT, UPDATE, DELETE ON NGUYENLIEU_MONAN TO user_quanly;
+-- quản lý nguyên liệu trong món ăn
+grant select, insert, update, delete on NGUYENLIEU_MONAN to user_quanly;
 
--- Qu?n l� ?�nh gi� c?a kh�ch h�ng
-GRANT SELECT, INSERT, UPDATE, DELETE ON DANHGIA TO user_quanly;
+-- quản lý đánh giá của khách hàng
+grant select, insert, update, delete on DANHGIA to user_quanly;
 
--- Qu?n l� ch??ng tr�nh khuy?n m�i
-GRANT SELECT, INSERT, UPDATE, DELETE ON KHUYENMAI TO user_quanly;
+-- quản lý chương trình khuyến mãi
+grant select, insert, update, delete on KHUYENMAI to user_quanly;
 
--- Qu?n l� b�o c�o th?ng k�
-GRANT SELECT, INSERT, UPDATE, DELETE ON PHIEUTHONGKE TO user_quanly;
+-- quản lý báo cáo thống kê
+grant select, insert, update, delete on PHIEUTHONGKE to user_quanly;
 
---C?p quy?n grant cho k? to�n 
--- Qu?n l� h�a ??n
-GRANT SELECT, INSERT, UPDATE, DELETE ON HOADON TO user_ketoan;
+-- cấp quyền grant cho kế toán 
+-- quản lý hóa đơn
+grant select, insert, update, delete on HOADON to user_ketoan;
 
--- Qu?n l� chi ti?t h�a ??n
-GRANT SELECT, INSERT, UPDATE, DELETE ON CHITIETHOADON TO user_ketoan;
+-- quản lý chi tiết hóa đơn
+grant select, insert, update, delete on CHITIETHOADON to user_ketoan;
 
--- Qu?n l� phi?u nh?p h�ng
-GRANT SELECT, INSERT, UPDATE, DELETE ON PHIEUNHAPHANG TO user_ketoan;
+-- quản lý phiếu nhập hàng
+grant select, insert, update, delete on PHIEUNHAPHANG to user_ketoan;
 
--- Qu?n l� chi ti?t nh?p h�ng
-GRANT SELECT, INSERT, UPDATE, DELETE ON CHITIETNHAPHANG TO user_ketoan;
+-- quản lý chi tiết nhập hàng
+grant select, insert, update, delete on CHITIETNHAPHANG to user_ketoan;
 
--- Xem m�n ?n ?? ??i chi?u b�o c�o
-GRANT SELECT ON MONAN TO user_ketoan;
+-- xem món ăn để đối chiếu báo cáo
+grant select on MONAN to user_ketoan;
 
--- Xem nguy�n li?u ?? ki?m tra t?n kho
-GRANT SELECT ON NGUYENLIEU TO user_ketoan;
+-- xem nguyên liệu để kiểm tra tồn kho
+grant select on NGUYENLIEU to user_ketoan;
 
--- L?p v� xem b�o c�o th?ng k� t�i ch�nh
-GRANT SELECT, INSERT, UPDATE, DELETE ON PHIEUTHONGKE TO user_ketoan;
+-- lập và xem báo cáo thống kê tài chính
+grant select, insert, update, delete on PHIEUTHONGKE to user_ketoan;
 
---thu h?i quy?n(revoke) c?a nh�n vi�n(user_nhanvien)
--- Thu h?i quy?n xem th�ng tin b�n
-REVOKE ALL ON BAN FROM user_nhanvien;
+-- thu hồi quyền của nhân viên (user_nhanvien)
+-- thu hồi quyền xem thông tin bàn
+revoke all on BAN from user_nhanvien;
 
--- Thu h?i quy?n xem m�n ?n
-REVOKE ALL ON MONAN FROM user_nhanvien;
+-- thu hồi quyền xem món ăn
+revoke all on MONAN from user_nhanvien;
 
--- Thu h?i quy?n truy c?p kh�ch h�ng
-REVOKE ALL ON KHACHHANG FROM user_nhanvien;
+-- thu hồi quyền truy cập khách hàng
+revoke all on KHACHHANG from user_nhanvien;
 
--- Thu h?i quy?n ??t b�n
-REVOKE ALL ON CHITIETDATBAN FROM user_nhanvien;
+-- thu hồi quyền đặt bàn
+revoke all on CHITIETDATBAN from user_nhanvien;
 
--- Thu h?i quy?n ??ng k� ca
-REVOKE ALL ON NHANVIEN_CALAMVIEC FROM user_nhanvien;
+-- thu hồi quyền đăng ký ca
+revoke all on NHANVIEN_CALAMVIEC from user_nhanvien;
 
--- Thu h?i quy?n xem ca l�m vi?c
-REVOKE ALL ON CALAMVIEC FROM user_nhanvien;
+-- thu hồi quyền xem ca làm việc
+revoke all on CALAMVIEC from user_nhanvien;
 
--- Thu h?i quy?n t?o h�a ??n
-REVOKE ALL ON HOADON FROM user_nhanvien;
+-- thu hồi quyền tạo hóa đơn
+revoke all on HOADON from user_nhanvien;
 
--- Thu h?i quy?n t?o chi ti?t h�a ??n
-REVOKE ALL ON CHITIETHOADON FROM user_nhanvien;
+-- thu hồi quyền tạo chi tiết hóa đơn
+revoke all on CHITIETHOADON from user_nhanvien;
 
--- Thu h?i quy?n g?i ?�nh gi�
-REVOKE ALL ON DANHGIA FROM user_nhanvien;
+-- thu hồi quyền gửi đánh giá
+revoke all on DANHGIA from user_nhanvien;
 
--- Thu h?i quy?n xem khuy?n m�i
-REVOKE ALL ON KHUYENMAI FROM user_nhanvien;
+-- thu hồi quyền xem khuyến mãi
+revoke all on KHUYENMAI from user_nhanvien;
 
---thu h?i quy?n(revoke) c?a qu?n l�(user_quanly)
--- Thu h?i quy?n tr�n b?ng NHANVIEN
-REVOKE ALL ON NHANVIEN FROM user_quanly;
+-- thu hồi quyền của quản lý (user_quanly)
+-- thu hồi quyền trên bảng NHANVIEN
+revoke all on NHANVIEN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng CALAMVIEC
-REVOKE ALL ON CALAMVIEC FROM user_quanly;
+-- thu hồi quyền trên bảng CALAMVIEC
+revoke all on CALAMVIEC from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng NHANVIEN_CALAMVIEC
-REVOKE ALL ON NHANVIEN_CALAMVIEC FROM user_quanly;
+-- thu hồi quyền trên bảng NHANVIEN_CALAMVIEC
+revoke all on NHANVIEN_CALAMVIEC from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng KHACHHANG
-REVOKE ALL ON KHACHHANG FROM user_quanly;
+-- thu hồi quyền trên bảng KHACHHANG
+revoke all on KHACHHANG from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng HOADON
-REVOKE ALL ON HOADON FROM user_quanly;
+-- thu hồi quyền trên bảng HOADON
+revoke all on HOADON from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng CHITIETHOADON
-REVOKE ALL ON CHITIETHOADON FROM user_quanly;
+-- thu hồi quyền trên bảng CHITIETHOADON
+revoke all on CHITIETHOADON from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng CHITIETDATBAN
-REVOKE ALL ON CHITIETDATBAN FROM user_quanly;
+-- thu hồi quyền trên bảng CHITIETDATBAN
+revoke all on CHITIETDATBAN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng BAN
-REVOKE ALL ON BAN FROM user_quanly;
+-- thu hồi quyền trên bảng BAN
+revoke all on BAN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng MONAN
-REVOKE ALL ON MONAN FROM user_quanly;
+-- thu hồi quyền trên bảng MONAN
+revoke all on MONAN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng NHOMMONAN
-REVOKE ALL ON NHOMMONAN FROM user_quanly;
+-- thu hồi quyền trên bảng NHOMMONAN
+revoke all on NHOMMONAN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng NGUYENLIEU
-REVOKE ALL ON NGUYENLIEU FROM user_quanly;
+-- thu hồi quyền trên bảng NGUYENLIEU
+revoke all on NGUYENLIEU from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng NGUYENLIEU_MONAN
-REVOKE ALL ON NGUYENLIEU_MONAN FROM user_quanly;
+-- thu hồi quyền trên bảng NGUYENLIEU_MONAN
+revoke all on NGUYENLIEU_MONAN from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng DANHGIA
-REVOKE ALL ON DANHGIA FROM user_quanly;
+-- thu hồi quyền trên bảng DANHGIA
+revoke all on DANHGIA from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng KHUYENMAI
-REVOKE ALL ON KHUYENMAI FROM user_quanly;
+-- thu hồi quyền trên bảng KHUYENMAI
+revoke all on KHUYENMAI from user_quanly;
 
--- Thu h?i quy?n tr�n b?ng PHIEUTHONGKE
-REVOKE ALL ON PHIEUTHONGKE FROM user_quanly;
+-- thu hồi quyền trên bảng PHIEUTHONGKE
+revoke all on PHIEUTHONGKE from user_quanly;
 
---thu h?i quy?n(revoke) c?a k? to�n(user_ketoan)
--- Thu h?i quy?n tr�n b?ng HOADON
-REVOKE ALL ON HOADON FROM user_ketoan;
+-- thu hồi quyền của kế toán (user_ketoan)
+-- thu hồi quyền trên bảng HOADON
+revoke all on HOADON from user_ketoan;
 
--- Thu h?i quy?n tr�n b?ng CHITIETHOADON
-REVOKE ALL ON CHITIETHOADON FROM user_ketoan;
+-- thu hồi quyền trên bảng CHITIETHOADON
+revoke all on CHITIETHOADON from user_ketoan;
 
--- Thu h?i quy?n tr�n b?ng PHIEUNHAPHANG
-REVOKE ALL ON PHIEUNHAPHANG FROM user_ketoan;
+-- thu hồi quyền trên bảng PHIEUNHAPHANG
+revoke all on PHIEUNHAPHANG from user_ketoan;
 
--- Thu h?i quy?n tr�n b?ng CHITIETNHAPHANG
-REVOKE ALL ON CHITIETNHAPHANG FROM user_ketoan;
+-- thu hồi quyền trên bảng CHITIETNHAPHANG
+revoke all on CHITIETNHAPHANG from user_ketoan;
 
--- Thu h?i quy?n SELECT tr�n b?ng MONAN
-REVOKE ALL ON MONAN FROM user_ketoan;
+-- thu hồi quyền select trên bảng MONAN
+revoke all on MONAN from user_ketoan;
 
--- Thu h?i quy?n SELECT tr�n b?ng NGUYENLIEU
-REVOKE ALL ON NGUYENLIEU FROM user_ketoan;
+-- thu hồi quyền select trên bảng NGUYENLIEU
+revoke all on NGUYENLIEU from user_ketoan;
 
--- Thu h?i quy?n tr�n b?ng PHIEUTHONGKE
-REVOKE ALL ON PHIEUTHONGKE FROM user_ketoan;
+-- thu hồi quyền trên bảng PHIEUTHONGKE
+revoke all on PHIEUTHONGKE from user_ketoan;
